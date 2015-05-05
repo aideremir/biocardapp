@@ -10,10 +10,13 @@
 
 	<div class="order-form" style="padding: 10px">
 
+
+		<br>
+
 		<input type="text" class="text-input text-input--underbar" placeholder="City from" ng-change="changeCity(cityFrom,'fromTowns')" ng-model="cityFrom" value="" style="width: 100%" >
 
 		<ul class="list" ng-show="fromTowns.length">
-			<li class="list__item" ng-repeat="town in fromTowns">
+			<li class="list__item list__item--tappable" ng-repeat="town in fromTowns" ng-click="selectCity(town.name,'cityFrom', 'fromTowns')">
 				<span ng-bind="town.name" data-code="{{ town.code }}"></span>
 			</li>
 		</ul>
@@ -25,7 +28,7 @@
 		<input type="text" class="text-input text-input--underbar" placeholder="City to" ng-change="changeCity(cityTo, 'toTowns')" ng-model="cityTo" value="" style="width:100%">
 
 		<ul class="list" ng-show="toTowns.length">
-			<li class="list__item" ng-repeat="town in toTowns">
+			<li class="list__item list__item--tappable" ng-repeat="town in toTowns" ng-click="selectCity(town.name,'cityTo', 'toTowns')">
 				<span ng-bind="town.name" data-code="{{ town.code }}"></span>
 			</li>
 		</ul>
@@ -33,10 +36,17 @@
 		<br>
 		<br>
 
-		<select style="">
-			<option>1</option>
-			<option>2</option>
-		</select>
+		<ul class="list">
+			<li class="list__header">Delivery type</li>
+			<li class="list__item list__item--tappable" ng-repeat="service in services">
+				<label class="radio-button">
+					<input type="radio" name="deliveryType"  ng-model="$parent.deliveryType" value="{{ service.code }}">
+					<div class="radio-button__checkmark"></div>
+					{{ service.name }}
+				</label>
+			</li>
+
+		</ul>
 
 		
 
@@ -47,6 +57,8 @@
 
 
 		<br><br>
-		<ons-button modifier="large" class="login-button" ng-enabled="cityFrom && cityTo" ng-click="calculate()">Calculate</ons-button>
+
+
+		<ons-button modifier="large" class="login-button" ng-disabled="!cityFrom || !cityTo || !weight || !deliveryType" ng-click="calculate()">Calculate</ons-button>
 	</div>
 </ons-page>

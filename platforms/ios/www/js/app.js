@@ -39,6 +39,8 @@ var biocard = {
 
     },
 
+
+
     utils: {
         zeroPad: function (str) {
             str = '' + str;
@@ -62,10 +64,26 @@ var biocard = {
 
 module.controller('appController', function ($scope) {
 
-
     document.body.style.marginTop = "20px";
 
     $scope.startPage = biocard.auth() ? 'pages/tracking.html' : 'pages/login.html';
+
+
+    ons.ready(function() {
+
+        menu.logout = function()
+        {
+            biocard.login = null;
+            biocard.password = null;
+
+            localStorage.removeItem('login');
+            localStorage.removeItem('password');
+
+            menu.setMainPage('pages/login.html', {closeMenu: true});
+        }
+
+    });
+
 
 });
 

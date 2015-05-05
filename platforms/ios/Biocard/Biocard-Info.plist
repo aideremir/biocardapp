@@ -69,6 +69,7 @@
     <key>UISupportedInterfaceOrientations</key>
     <array>
       <string>UIInterfaceOrientationPortrait</string>
+      <string>UIInterfaceOrientationPortraitUpsideDown</string>
     </array>
     <key>UISupportedInterfaceOrientations~ipad</key>
     <array>
@@ -81,5 +82,9 @@
     <string>1.0.0</string>
     <key>NSLocationWhenInUseUsageDescription</key>
     <string></string>
+    <key>UIInterfaceOrientation</key>
+    <array>
+      <string>UIInterfaceOrientationPortrait</string>
+    </array>
   </dict>
 </plist>

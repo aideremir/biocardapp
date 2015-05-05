@@ -65,7 +65,7 @@ module.controller('calculatorController', function($scope, $http) {
                         <calc townfrom="' + $scope.cityFrom + '" townto="' + $scope.cityTo + '" mass="' + $scope.weight + '" mode="2" />\
                     </calculator>';
 
-        console.log(xml);
+
     }
 
 

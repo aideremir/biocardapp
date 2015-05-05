@@ -44,14 +44,16 @@ module.controller('trackingController', function ($scope, $http) {
                 '</statusreq>';
 
 
+            /*
             var request = {
                 method: 'POST',
                 url: biocard.apiLink,
                 headers: { "Content-Type": 'application/xml' },
                 data: xml
             }
+            */
 
-            $http(request).
+            $http.post(biocard.apiLink, xml).
                 success(function (data, status, headers, config) {
 
                     //console.log(data);

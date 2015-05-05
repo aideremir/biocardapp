@@ -1,0 +1,48 @@
+<style>
+	.login-form {
+		text-align: center;
+		width: 80%;
+		margin: 60px auto 0;
+	}
+
+	input[type=text], input[type=password] {
+		display: block;
+		width: 100%;
+		margin: 0 auto;
+		outline: none;
+		padding-top: 24px;
+		padding-bottom: 24px;
+	}
+
+	.login-button {
+		width: 100%;
+		margin: 0 auto;
+	}
+
+	.forgot-password {
+		display: block;
+		margin: 8px auto 0 auto;
+		font-size: 14px;
+	}
+</style>
+
+<ons-page id="login" ng-controller="loginController">
+	<ons-toolbar>
+		<!--div class="left">
+			<ons-toolbar-button ng-click="menu.toggleMenu()">
+				<ons-icon icon="fa-bars"></ons-icon>
+			</ons-toolbar-button>
+		</div-->
+		<div class="center">Welcome</div>
+	</ons-toolbar>
+
+	<div class="login-form">
+		<input type="text" class="text-input--underbar" placeholder="Login" value="" ng-model="loginPage.login">
+		<input type="password" class="text-input--underbar" placeholder="Password" value="" ng-model="loginPage.password">
+		<br><br>
+		<ons-button modifier="large" class="login-button" ng-click="loginPage.userLogin()">Log In</ons-button>
+		<br><br>
+		<!--ons-button modifier="quiet" class="forgot-password">Forgot password?</ons-button-->
+	</div>
+
+</ons-page>

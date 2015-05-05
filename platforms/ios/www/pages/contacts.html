@@ -1,0 +1,29 @@
+<ons-page id="contacts" ng-controller="contactsController">
+	<ons-toolbar>
+		<div class="left">
+			<ons-toolbar-button ng-click="menu.toggleMenu()">
+				<ons-icon icon="fa-bars"></ons-icon>
+			</ons-toolbar-button>
+		</div>
+		<div class="center">Contacts</div>
+	</ons-toolbar>
+
+<div class="contact-form">
+	<ul class="list">
+		<li class="list__item"><input type="text" class="text-input text-input--transparent" placeholder="Email" value="" style="width:100%"></li>
+		<li class="list__item"><input type="tel" class="text-input text-input--transparent" placeholder="Pnone" value="" style="width:100%"></li>
+		<li class="list__item"><textarea class="textarea textarea--transparent"  rows="4" placeholder="Message"></textarea></li>
+	</ul>
+	<div style="padding: 10px">
+		<button class="button button--large">Send</button>
+	</div>
+
+	<div style="padding: 10px">
+		<a href="tel:+74993463588" class="button button--large--cta">Call +7 (499) 346-35-88</a><br>
+		<a href="tel:+74959757239" class="button button--large--cta">Call +7 (495) 975-72-39</a><br>
+		<a href="tel:+78007759654" class="button button--large--cta">Call +7 (800) 775-96-54</a><br>
+	</div>
+
+
+</div>
+</ons-page>

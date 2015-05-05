@@ -1,0 +1,88 @@
+<style>
+	.propsList ons-icon {
+		width: 25px;
+		opacity: 0.3;
+	}
+</style>
+<ons-page ng-controller="orderDetailsController">
+	<ons-toolbar>
+		<div class="left">
+			<ons-toolbar-button ng-click="nav.popPage()">
+				<ons-icon icon="fa-angle-left"></ons-icon>
+			</ons-toolbar-button>
+		</div>
+		<div class="center">Order {{ order.orderno }}</div>
+	</ons-toolbar>
+
+	<div style="padding: 10px;" >
+		<div class="button-bar" style="width: 100%">
+
+
+
+			<div class="button-bar__item">
+				<input type="radio" name="segment-a"  ng-click="show('sender')">
+				<button class="button-bar__button">Sender</button>
+			</div>
+
+
+
+			<div class="button-bar__item">
+				<input type="radio" name="segment-a" checked ng-click="show('details')">
+				<button class="button-bar__button">Details</button>
+			</div>
+
+			<div class="button-bar__item">
+				<input type="radio" name="segment-a"  ng-click="show('receiver')">
+				<button class="button-bar__button">Receiver</button>
+			</div>
+
+		</div>
+	</div>
+
+	<ons-list ng-show="tabs.sender" class="propsList">
+		<ons-list-item>
+			<ons-icon icon="fa-building"></ons-icon> {{ order.fromCompany }}
+		</ons-list-item>
+		<ons-list-item>
+			<ons-icon icon="fa-map-marker"></ons-icon> {{ order.fromTown }}, {{ order.fromAddress }}
+		</ons-list-item>
+
+		<ons-list-item>
+			<ons-icon icon="fa-user"></ons-icon> {{ order.fromPerson }}
+		</ons-list-item>
+	</ons-list>
+
+	<ons-list ng-show="tabs.receiver" class="propsList">
+		<ons-list-item>
+			<ons-icon icon="fa-building"></ons-icon> {{ order.toCompany }}
+		</ons-list-item>
+		<ons-list-item>
+			<ons-icon icon="fa-map-marker"></ons-icon>{{ order.toTown }}, {{ order.toAddress }}
+		</ons-list-item>
+
+		<ons-list-item>
+			<ons-icon icon="fa-user"></ons-icon>{{ order.toPerson }}
+		</ons-list-item>
+	</ons-list>
+
+	<ons-list ng-show="tabs.details" class="propsList">
+		<ons-list-item>
+			<ons-icon icon="fa-ticket"></ons-icon> {{ order.ordercode }}
+		</ons-list-item>
+		<ons-list-item>
+			<ons-icon icon="fa-check"></ons-icon> {{ order.status }}
+		</ons-list-item>
+		<ons-list-item>
+			<ons-icon icon="fa-briefcase"></ons-icon> {{ order.weight }}&nbsp;kg
+		</ons-list-item>
+		<ons-list-item>
+			<ons-icon icon="fa-money"></ons-icon> {{ order.price }}&nbsp;₽
+		</ons-list-item>
+		<ons-list-item>
+			<ons-icon icon="fa-comment"></ons-icon> {{ order.comments }}
+		</ons-list-item>
+	</ons-list>
+
+
+
+</ons-page>

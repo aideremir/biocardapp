@@ -1,0 +1,67 @@
+<style>
+	.list-item-container {
+		line-height: 1;
+		padding: 15px 0px 15px 15px;
+	}
+
+	.thumbnail {
+		width: 80px;
+		height: 80px;
+		border-radius: 4px;
+		-webkit-border-radius: 4px;
+	}
+
+	.name {
+		font-weight: 500;
+		line-height: 16px;
+		font-size: 15px;
+		margin-bottom: 6px;
+	}
+
+	.location {
+		font-size: 14px;
+		opacity: 0.4;
+		margin-bottom: 6px;
+	}
+
+	.desc {
+		line-height: 1.2;
+		font-size: 13px;
+	}
+</style>
+<ons-page id="news" ng-controller="newsController">
+	<ons-toolbar>
+		<div class="left">
+			<ons-toolbar-button ng-click="menu.toggleMenu()">
+				<ons-icon icon="fa-bars"></ons-icon>
+			</ons-toolbar-button>
+		</div>
+		<div class="center">News</div>
+	</ons-toolbar>
+
+
+
+	<ons-list id="newsList">
+
+		<ons-list-item ng-repeat="item in newsList" class="list-item-container">
+			<ons-row>
+				<ons-col>
+					<div class="name" ng-bind-html="item.title">
+					</div>
+
+					<div class="location">
+						<i class="fa fa-calendar"></i>
+						<span ng-bind-html="item.date"></span>
+					</div>
+
+					<div class="desc" ng-bind-html="item.desc">
+
+					</div>
+				</ons-col>
+				<ons-col width="40px"></ons-col>
+			</ons-row>
+		</ons-list-item>
+
+	</ons-list>
+
+</ons-page>

@@ -1,0 +1,22 @@
+<ons-page ng-controller="settingsController">
+	<ons-toolbar>
+		<div class="left">
+			<ons-toolbar-button ng-click="menu.toggleMenu()">
+				<ons-icon icon="fa-bars"></ons-icon>
+			</ons-toolbar-button>
+		</div>
+		<div class="center">Settings</div>
+	</ons-toolbar>
+
+	<div class="contact-form">
+		<ul class="list">
+			<li class="list__item"><input type="text" class="text-input text-input--transparent" placeholder="Email" value="" style="width:100%"></li>
+			<li class="list__item"><input type="tel" class="text-input text-input--transparent" placeholder="Pnone" value="" style="width:100%"></li>
+			<li class="list__item"><textarea class="textarea textarea--transparent"  rows="4" placeholder="Message"></textarea></li>
+		</ul>
+		<div style="padding: 10px">
+			<button class="button button--large">Save</button>
+		</div>
+
+	</div>
+</ons-page>

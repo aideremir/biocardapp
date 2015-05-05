@@ -1,0 +1,96 @@
+<style>
+	.list-item-container {
+		line-height: 1;
+		padding: 15px 0px 15px 15px;
+	}
+
+	.thumbnail {
+		width: 80px;
+		height: 80px;
+		border-radius: 4px;
+		-webkit-border-radius: 4px;
+	}
+
+	.name {
+		font-weight: 500;
+		line-height: 16px;
+		font-size: 15px;
+		margin-bottom: 6px;
+	}
+
+	.location {
+		font-size: 14px;
+		opacity: 0.4;
+		margin-bottom: 6px;
+	}
+
+	.desc {
+		line-height: 1.2;
+		font-size: 13px;
+	}
+</style>
+
+<ons-page id="tracking" ng-controller="trackingController">
+	<ons-toolbar>
+		<div class="left">
+			<ons-toolbar-button ng-click="menu.toggleMenu()">
+				<ons-icon icon="fa-bars"></ons-icon>
+			</ons-toolbar-button>
+		</div>
+		<div class="center">Tracking</div>
+		<div class="right">
+			<ons-toolbar-button ng-click="nav.pushPage('pages/order.html', { animation: 'slide' })">
+				<ons-icon icon="fa-plus"></ons-icon>
+			</ons-toolbar-button>
+		</div>
+	</ons-toolbar>
+
+	<div style="padding: 10px;" >
+		<div class="button-bar" style="width: 100%">
+			<div class="button-bar__item">
+				<input type="radio" name="segment-a" ng-checked="!show" ng-click="show=!show">
+				<button class="button-bar__button">Map</button>
+			</div>
+
+			<div class="button-bar__item">
+				<input type="radio" name="segment-a" ng-checked="show" ng-click="show=!show">
+				<button class="button-bar__button">List</button>
+			</div>
+		</div>
+	</div>
+
+	<div style="position: absolute; top: 47px; left: 0; right: 0; bottom: 0;">
+
+		<div id="tracking-map" ng-show="!show">
+			<div class="wrap" id="googleMap" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 1">
+
+			</div>
+		</div>
+		<div id="tracking-list" ng-show="show">
+			<ons-list>
+				<ons-list-item ng-repeat="order in orders" modifier="chevron" class="list-item-container" ng-click="nav.pushPage('pages/orderDetails.html', { animation: 'slide', order: order })">
+					<ons-row>
+						<ons-col>
+							<div class="name">
+								{{ order.toPerson }} <span class="company" style="opacity: 0.5">{{ order.toCompany }}</span>
+							</div>
+							<div class="location">
+								<i class="fa fa-map-marker"></i> {{ order.fromTown }} &rarr; {{ order.toTown }}
+							</div>
+							<div class="desc">
+								{{ order.toAddress }}
+							</div>
+						</ons-col>
+						<ons-col width="40px"></ons-col>
+					</ons-row>
+				</ons-list-item>
+
+			</ons-list>
+
+		</div>
+	</div>
+
+
+
+</ons-page>
+

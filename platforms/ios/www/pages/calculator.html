@@ -1,0 +1,52 @@
+<ons-page id="calculator" ng-controller="calculatorController">
+	<ons-toolbar>
+		<div class="left">
+			<ons-toolbar-button ng-click="menu.toggleMenu()">
+				<ons-icon icon="fa-bars"></ons-icon>
+			</ons-toolbar-button>
+		</div>
+		<div class="center">Calculator</div>
+	</ons-toolbar>
+
+	<div class="order-form" style="padding: 10px">
+
+		<input type="text" class="text-input text-input--underbar" placeholder="City from" ng-change="changeCity(cityFrom,'fromTowns')" ng-model="cityFrom" value="" style="width: 100%" >
+
+		<ul class="list" ng-show="fromTowns.length">
+			<li class="list__item" ng-repeat="town in fromTowns">
+				<span ng-bind="town.name" data-code="{{ town.code }}"></span>
+			</li>
+		</ul>
+
+
+		<br>
+		<br>
+
+		<input type="text" class="text-input text-input--underbar" placeholder="City to" ng-change="changeCity(cityTo, 'toTowns')" ng-model="cityTo" value="" style="width:100%">
+
+		<ul class="list" ng-show="toTowns.length">
+			<li class="list__item" ng-repeat="town in toTowns">
+				<span ng-bind="town.name" data-code="{{ town.code }}"></span>
+			</li>
+		</ul>
+
+		<br>
+		<br>
+
+		<select style="">
+			<option>1</option>
+			<option>2</option>
+		</select>
+
+		
+
+		<br>
+		<br>
+
+		<input type="text" class="text-input text-input--underbar" placeholder="Weight"  ng-model="weight" value="" style="width:100%">
+
+
+		<br><br>
+		<ons-button modifier="large" class="login-button" ng-enabled="cityFrom && cityTo" ng-click="calculate()">Calculate</ons-button>
+	</div>
+</ons-page>

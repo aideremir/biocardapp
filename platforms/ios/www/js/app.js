@@ -64,7 +64,7 @@ var biocard = {
 
 module.controller('appController', function ($scope) {
 
-    document.body.style.marginTop = "20px";
+    //document.body.style.marginTop = "20px";
 
     $scope.startPage = biocard.auth() ? 'pages/tracking.html' : 'pages/login.html';
 

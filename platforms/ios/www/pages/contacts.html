@@ -9,13 +9,14 @@
 	</ons-toolbar>
 
 <div class="contact-form">
+
 	<ul class="list">
-		<li class="list__item"><input type="text" class="text-input text-input--transparent" placeholder="Email" value="" style="width:100%"></li>
-		<li class="list__item"><input type="tel" class="text-input text-input--transparent" placeholder="Pnone" value="" style="width:100%"></li>
-		<li class="list__item"><textarea class="textarea textarea--transparent"  rows="4" placeholder="Message"></textarea></li>
+		<li class="list__item"><input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ng-model="email" type="text" class="text-input text-input--transparent" placeholder="Email" value="" style="width:100%"></li>
+		<li class="list__item"><input ng-model="phone" type="tel" class="text-input text-input--transparent" placeholder="Phone" value="" style="width:100%"></li>
+		<li class="list__item"><textarea ng-model="message" class="textarea textarea--transparent"  rows="4" placeholder="Message"></textarea></li>
 	</ul>
 	<div style="padding: 10px">
-		<button class="button button--large">Send</button>
+		<button ng-click="send()" class="button button--large" ng-disabled="(!email && !phone) || !message">Send</button>
 	</div>
 
 	<div style="padding: 10px">

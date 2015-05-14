@@ -13,7 +13,10 @@
 
 		<br>
 
-		<input type="text" class="text-input text-input--underbar" placeholder="City from" ng-change="changeCity(cityFrom,'fromTowns')" ng-model="cityFrom" value="" style="width: 100%" >
+		<ons-icon icon="ion-load-d" ng-show="pending_fromTowns" spin="true" style="position: absolute;right: 10px;margin-bottom: -25px;"></ons-icon>
+		<input autocomplete="off" autocorrect="off" spellcheck="false" type="text" class="text-input text-input--underbar" placeholder="City from" ng-change="changeCity(cityFrom,'fromTowns')" ng-model="cityFrom" value="" style="width: 100%" >
+
+
 
 		<ul class="list" ng-show="fromTowns.length">
 			<li class="list__item list__item--tappable" ng-repeat="town in fromTowns" ng-click="selectCity(town.name,'cityFrom', 'fromTowns')">
@@ -25,7 +28,8 @@
 		<br>
 		<br>
 
-		<input type="text" class="text-input text-input--underbar" placeholder="City to" ng-change="changeCity(cityTo, 'toTowns')" ng-model="cityTo" value="" style="width:100%">
+		<ons-icon icon="ion-load-d" ng-show="pending_toTowns" spin="true" style="position: absolute;right: 10px;margin-bottom: -25px;"></ons-icon>
+		<input autocomplete="off" autocorrect="off" spellcheck="false" type="text" class="text-input text-input--underbar" placeholder="City to" ng-change="changeCity(cityTo, 'toTowns')" ng-model="cityTo" value="" style="width:100%">
 
 		<ul class="list" ng-show="toTowns.length">
 			<li class="list__item list__item--tappable" ng-repeat="town in toTowns" ng-click="selectCity(town.name,'cityTo', 'toTowns')">

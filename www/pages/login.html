@@ -2,7 +2,7 @@
 	.login-form {
 		text-align: center;
 		width: 80%;
-		margin: 60px auto 0;
+		margin: 40px auto 0;
 	}
 
 	input[type=text], input[type=password] {
@@ -12,6 +12,7 @@
 		outline: none;
 		padding-top: 24px;
 		padding-bottom: 24px;
+		color: #ffffff;
 	}
 
 	.login-button {
@@ -24,23 +25,35 @@
 		margin: 8px auto 0 auto;
 		font-size: 14px;
 	}
+
+	#login .page__content {
+		background: url(img/biocard_bg2x.png) !important;
+		background-repeat: no-repeat !important;
+		background-size: cover !important;
+		background-position: 50% bottom !important;
+	}
+
+	.logo {
+		background: url(img/logo.svg) 50% no-repeat;
+		/*background-size: cover;*/
+		width: 80%;
+		height: 75px;
+		margin: 70px auto 0;
+	}
 </style>
 
 <ons-page id="login" ng-controller="loginController">
-	<ons-toolbar>
-		<!--div class="left">
-			<ons-toolbar-button ng-click="menu.toggleMenu()">
-				<ons-icon icon="fa-bars"></ons-icon>
-			</ons-toolbar-button>
-		</div-->
-		<div class="center">Welcome</div>
-	</ons-toolbar>
+	<!--ons-toolbar>
+		<div class="center">BIOCARD</div>
+	</ons-toolbar-->
 
-	<div class="login-form">
-		<input type="text" class="text-input--underbar" placeholder="Login" value="" ng-model="loginPage.login">
+	<div class="logo"></div>
+
+	<div class="login-form" ng-show="loginPage.onLine">
+		<input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" type="text" class="text-input--underbar" placeholder="Login" value="" ng-model="loginPage.login">
 		<input type="password" class="text-input--underbar" placeholder="Password" value="" ng-model="loginPage.password">
 		<br><br>
-		<ons-button modifier="large" class="login-button" ng-click="loginPage.userLogin()">Log In</ons-button>
+		<ons-button modifier="large" ng-disabled="!loginPage.login || !loginPage.password" class="login-button" ng-click="loginPage.userLogin()">Log In</ons-button>
 		<br><br>
 		<!--ons-button modifier="quiet" class="forgot-password">Forgot password?</ons-button-->
 	</div>

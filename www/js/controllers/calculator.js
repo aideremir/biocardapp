@@ -61,7 +61,7 @@ module.controller('calculatorController', function ($scope, $http) {
 
                 '</townlist>';
 
-            modal.show();
+            $scope['pending_' + list] = true;
 
             $http.post(biocard.apiLink, xml).
                 success(function (data, status, headers, config) {
@@ -82,17 +82,16 @@ module.controller('calculatorController', function ($scope, $http) {
 
                     $scope[list] = towns;
 
-                    modal.hide();
+                    $scope['pending_' + list] = false;
                 }).
                 error(function (data, status, headers, config) {
-                    modal.hide();
+                    $scope['pending_' + list] = false;
                 });
 
         }
 
 
-        $scope.selectCity = function(townName, varName, list)
-        {
+        $scope.selectCity = function (townName, varName, list) {
             $scope[list] = [];
             $scope[varName] = townName;
         }
@@ -111,17 +110,17 @@ module.controller('calculatorController', function ($scope, $http) {
                     console.log(data);
 
                     var error = $(data).text(), price = $(data).find('calc').attr('price'),
-                        message = (error.trim().length > 0) ? error : 'Delivery from <b>' + $scope.cityFrom +  '</b> to <b>' + $scope.cityTo + '</b> costs <b>' + price + '&nbsp;₽</b>';
+                        message = (error.trim().length > 0) ? error : 'Delivery from <b>' + $scope.cityFrom + '</b> to <b>' + $scope.cityTo + '</b> costs <b>' + price + '&nbsp;₽</b>';
 
 
-                            ons.notification.alert({
+                    ons.notification.alert({
                         //message: 'Error loading data',
                         messageHTML: message,
                         title: 'Calculator result',
                         buttonLabel: 'OK',
                         animation: 'default', // or 'none'
                         // modifier: 'optional-modifier'
-                        callback: function() {
+                        callback: function () {
                             // Alert button is closed!
                         }
                     });
@@ -137,7 +136,7 @@ module.controller('calculatorController', function ($scope, $http) {
                         buttonLabel: 'OK',
                         animation: 'default', // or 'none'
                         // modifier: 'optional-modifier'
-                        callback: function() {
+                        callback: function () {
                             // Alert button is closed!
                         }
                     });

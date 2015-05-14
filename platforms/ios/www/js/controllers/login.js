@@ -6,6 +6,8 @@ module.controller('loginController', function ($scope, $http) {
     ons.ready(function () {
 
         $scope.loginPage = {
+            onLine: navigator.onLine,
+
             auth: function () {
                 return false;
             },
@@ -49,12 +51,21 @@ module.controller('loginController', function ($scope, $http) {
                     }).
                     error(function (data, status, headers, config) {
 
+                        console.log(data);
+                        console.log(status);
+                        console.log(headers);
+                        console.log(config);
+
+
+                        /*
                         ons.notification.alert({
                             message: data,
                             title: status,
                             buttonLabel: 'OK',
                             animation: 'default'
                         });
+                        */
+
 
                         modal.hide();
                     });

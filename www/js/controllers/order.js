@@ -74,11 +74,11 @@ module.controller('orderController', function ($scope, $http) {
             <service>' + order.deliveryType + '</service>\
             <price>' + order.sum + '</price>\
             <enclosure>' + order.attach + '</enclosure>\
-            <instruction>' + order.comments + '</instruction>\
+            <instruction>' + order.comments + ' | sent with BIOCARDMOBILE</instruction>\
         </order>\
     </neworder>';
 
-        console.log(xml);
+        //console.log(xml);
 
         modal.show();
 
@@ -97,6 +97,13 @@ module.controller('orderController', function ($scope, $http) {
                     });
                 }
                 else {
+
+                    ons.notification.alert({
+                        message: 'Order sent',
+                        title: 'Success',
+                        buttonLabel: 'OK',
+                        animation: 'default'
+                    });
 
 
 

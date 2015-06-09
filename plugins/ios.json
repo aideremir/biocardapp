@@ -60,6 +60,9 @@
         },
         "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "biocardapp"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "biocardapp"
         }
     },
     "dependent_plugins": {}

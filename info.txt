@@ -1,3 +1,9 @@
+Node version: v0.10.31
+
+Cordova version: 5.0.0
+
+Config.xml file: 
+
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="biocardapp" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Biocard</name>
@@ -68,3 +74,13 @@
     <access origin="*" />
 
 </widget>
+
+Plugins: 
+
+cordova-plugin-device-motion,cordova-plugin-device-orientation,cordova-plugin-geolocation
+
+iOS platform:
+
+Xcode 6.3
+Build version 6D570
+

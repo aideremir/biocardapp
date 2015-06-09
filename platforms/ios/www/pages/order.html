@@ -25,71 +25,77 @@
 		</div>
 	</div>
 
+	<div ng-show="tabs.receiver">
+		<ul class="list">
+			<li class="list__item">
+				<input type="text" class="text-input text-input--transparent" placeholder="Company" ng-model="order.company" value="" style="width:100%">
+			</li>
+			<li class="list__item">
+				<input type="text" class="text-input text-input--transparent" placeholder="Person" ng-model="order.person" value="" style="width:100%">
+			</li>
+			<li class="list__item">
+				<input type="tel" class="text-input text-input--transparent" placeholder="Phone" ng-model="order.phone" value="" style="width:100%">
+			</li>
+			<li class="list__item">
+				<input type="text" class="text-input text-input--transparent" placeholder="Town" ng-model="order.town" value="" style="width:100%">
+			</li>
+			<li class="list__item">
+				<textarea class="textarea textarea--transparent" rows="4" placeholder="Address" ng-model="order.address"></textarea>
+			</li>
+			<li class="list__item">
+				<input type="date" class="text-input text-input--transparent" placeholder="Date" ng-model="order.date" value="" style="width:100%">
+			</li>
+			<li class="list__item">
+				<input type="time" class="text-input text-input--transparent" placeholder="Time min" ng-model="order.timeMin" value="" style="width:100%">
+			</li>
+			<li class="list__item">
+				<input type="time" class="text-input text-input--transparent" placeholder="Time max" ng-model="order.timeMax" value="" style="width:100%">
+			</li>
+		</ul>
+	</div>
 
-	<ul class="list" ng-show="tabs.receiver">
-		<li class="list__item">
-			<input type="text" class="text-input text-input--transparent" placeholder="Company" ng-model="order.company" value="" style="width:100%">
-		</li>
-		<li class="list__item">
-			<input type="text" class="text-input text-input--transparent" placeholder="Person" ng-model="order.person" value="" style="width:100%">
-		</li>
-		<li class="list__item">
-			<input type="tel" class="text-input text-input--transparent" placeholder="Phone" ng-model="order.phone" value="" style="width:100%">
-		</li>
-		<li class="list__item">
-			<input type="text" class="text-input text-input--transparent" placeholder="Town" ng-model="order.town" value="" style="width:100%">
-		</li>
-		<li class="list__item">
-			<textarea class="textarea textarea--transparent" rows="4" placeholder="Address" ng-model="order.address"></textarea>
-		</li>
-		<li class="list__item">
-			<input type="date" class="text-input text-input--transparent" placeholder="Date" ng-model="order.date" value="" style="width:100%">
-		</li>
-		<li class="list__item">
-			<input type="time" class="text-input text-input--transparent" placeholder="Time min" ng-model="order.timeMin" value="" style="width:100%">
-		</li>
-		<li class="list__item">
-			<input type="time" class="text-input text-input--transparent" placeholder="Time max" ng-model="order.timeMax" value="" style="width:100%">
-		</li>
-	</ul>
+	<div ng-show="tabs.details">
+		<ul class="list">
+			<li class="list__item">
+				<input type="number" class="text-input text-input--transparent" placeholder="Order weight" ng-model="order.weight" style="width:100%">
+			</li>
+			<li class="list__item">
+				<input type="number" class="text-input text-input--transparent" placeholder="Items Quantity" ng-model="order.quant" style="width:100%">
+			</li>
+			<li class="list__item">
+				<input type="number" class="text-input text-input--transparent" placeholder="Order sum" ng-model="order.sum" style="width:100%">
+			</li>
+			<li class="list__item">
+				<input type="text" class="text-input text-input--transparent" placeholder="Attachment" ng-model="order.attach" style="width:100%">
+			</li>
+			<li class="list__item">
+				<input type="date" class="text-input text-input--transparent" placeholder="Receive date" ng-model="order.receiveDate" style="width:100%">
+			</li>
+			<li class="list__item">
+				<textarea class="textarea textarea--transparent" rows="4" placeholder="Comments" ng-model="order.comments" style="width:100%"></textarea>
+			</li>
 
-	<ul class="list" ng-show="tabs.details">
-		<li class="list__item">
-			<input type="number"  class="text-input text-input--transparent" placeholder="Order weight" ng-model="order.weight" style="width:100%">
-		</li>
-		<li class="list__item">
-			<input type="number"  class="text-input text-input--transparent" placeholder="Items Quantity" ng-model="order.quant" style="width:100%">
-		</li>
-		<li class="list__item">
-			<input type="number"  class="text-input text-input--transparent" placeholder="Order sum" ng-model="order.sum" style="width:100%">
-		</li>
-		<li class="list__item">
-			<input type="text"  class="text-input text-input--transparent" placeholder="Attachment" ng-model="order.attach" style="width:100%">
-		</li>
-		<li class="list__item">
-			<input type="date"  class="text-input text-input--transparent" placeholder="Receive date" ng-model="order.receiveDate" style="width:100%">
-		</li>
-		<li class="list__item">
-			<textarea class="textarea textarea--transparent"  rows="4" placeholder="Comments"  ng-model="order.comments" style="width:100%"></textarea>
-		</li>
+		</ul>
 
-	</ul>
+		<ul class="list">
+			<li class="list__header">Delivery type</li>
+			<li class="list__item list__item--tappable" ng-repeat="service in services">
+				<label class="radio-button">
+					<input type="radio" name="deliveryType" ng-model="$parent.order.deliveryType" value="{{ service.code }}">
 
-	<ul class="list">
-		<li class="list__header">Delivery type</li>
-		<li class="list__item list__item--tappable" ng-repeat="service in services">
-			<label class="radio-button">
-				<input type="radio" name="deliveryType"  ng-model="$parent.order.deliveryType" value="{{ service.code }}">
-				<div class="radio-button__checkmark"></div>
-				{{ service.name }}
-			</label>
-		</li>
+					<div class="radio-button__checkmark"></div>
+					{{ service.name }}
+				</label>
+			</li>
 
-	</ul>
+		</ul>
+	</div>
 
 
 	<div style="padding: 10px">
-		<button class="button button--large" ng-click="addOrder()" ng-disabled="!order.company || !order.person || !order.phone || !order.address">Add order</button>
+		<button class="button button--large" ng-click="addOrder()" ng-disabled="!order.company || !order.person || !order.phone || !order.address">
+			Add order
+		</button>
 	</div>
 
 

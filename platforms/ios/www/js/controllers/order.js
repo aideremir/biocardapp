@@ -72,29 +72,38 @@ module.controller('orderController', function ($scope, $http) {
             <weight>' + order.weight + '</weight>\
             <quantity>' + order.quant + '</quantity>\
             <service>' + order.deliveryType + '</service>\
-            <price>' + order.price + '</price>\
+            <price>' + order.sum + '</price>\
             <enclosure>' + order.attach + '</enclosure>\
-            <instruction>' + order.comments + '</instruction>\
+            <instruction>' + order.comments + ' | sent with BIOCARDMOBILE</instruction>\
         </order>\
     </neworder>';
 
-        console.log(xml);
+        //console.log(xml);
+
+        modal.show();
 
         $http.post(biocard.apiLink, xml).
             success(function (data, status, headers, config) {
 
-                var $error = $(data).find('error');
+                var errormsg = $(data).find('createorder').attr('errormsg');
 
-                if ($error.length > 0) {
+                if (errormsg != 'success') {
 
                     ons.notification.alert({
-                        message: 'Wrong login or password',
+                        message: errormsg,
                         title: 'Error',
                         buttonLabel: 'OK',
                         animation: 'default'
                     });
                 }
                 else {
+
+                    ons.notification.alert({
+                        message: 'Order sent',
+                        title: 'Success',
+                        buttonLabel: 'OK',
+                        animation: 'default'
+                    });
 
 
 
